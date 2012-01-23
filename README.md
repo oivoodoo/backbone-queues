@@ -54,8 +54,11 @@ Dependency
 ----------
 
 Backbone.localStorage - https://github.com/jeromegn/Backbone.localStorage
+
 Underscore - https://github.com/documentcloud/underscore/
+
 Backbone - https://github.com/documentcloud/backbone
+
 jQuery - http://jquery.com
 
 Examples
