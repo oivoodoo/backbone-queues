@@ -61,6 +61,13 @@ Backbone - https://github.com/documentcloud/backbone
 
 jQuery - http://jquery.com
 
+BUILD
+-----
+
+    bundle exec jammit
+
+Then you can get minified version of backbone-queues from public/assets folder.
+
 Examples
 --------
 
