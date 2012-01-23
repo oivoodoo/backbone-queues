@@ -61,7 +61,7 @@ Backbone - https://github.com/documentcloud/backbone
 
 jQuery - http://jquery.com
 
-BUILD
+Build
 -----
 
     bundle exec jammit
