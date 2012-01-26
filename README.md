@@ -7,15 +7,18 @@ About
 The main purpose of this library to run elements queues for sync data in your
 client side application.
 
+```javascript
     var queues = new Queues();
     queues.fetch({
       success: function() {
         queues.trigger('sync');
       }
     });
+```
 
 Add new object to queue with predefined params:
 
+```javascript
     var queues = new Queues();
     queues.fetch();
 
@@ -46,6 +49,7 @@ ModuleName.ClassName should have right implementation for running queue:
         }
       });
     };
+```
 
 If your queue completed successfully queue will be removed from
 localStorage.
