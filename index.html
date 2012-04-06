@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Backbone-queues by oivoodoo</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Backbone-queues</h1>
+        <h2>javascript backbonejs</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/oivoodoo/backbone-queues/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/oivoodoo/backbone-queues/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/oivoodoo/backbone-queues" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h2>Backbone Queues</h2>
+
+<h3>About</h3>
+
+<p>The main purpose of this library to run elements queues for sync data in your
+client side application.</p>
+
+<pre><code>var queues = new Queues();
+queues.fetch({
+  success: function() {
+    queues.trigger('sync');
+  }
+});
+</code></pre>
+
+<p>Add new object to queue with predefined params:</p>
+
+<pre><code>var queues = new Queues();
+queues.fetch();
+
+queues.create({
+  class_name: 'ModuleName.ClassName',
+  options: {
+    param1: 'value1',
+    param2: 'value2'
+  }
+});
+</code></pre>
+
+<p>ModuleName.ClassName should have right implementation for running queue:</p>
+
+<pre><code>var ModuleName = {};
+ModuleName.ClassName = function(options) {
+};
+
+ModuleName.ClassName.prototype.run(options) {
+  // options contains success / error callbacks
+  // when you completed to work in run method for example
+  // on ajax success request you should run options.success()
+
+  $.ajax({
+    ...
+
+    success: function() {
+      options.success();
+    }
+  });
+};
+</code></pre>
+
+<p>If your queue completed successfully queue will be removed from
+localStorage.</p>
+
+<h3>Dependency</h3>
+
+<ul>
+<li><p>Backbone.localStorage - <a href="https://github.com/jeromegn/Backbone.localStorage">https://github.com/jeromegn/Backbone.localStorage</a></p></li>
+<li><p>Underscore - <a href="https://github.com/documentcloud/underscore/">https://github.com/documentcloud/underscore/</a></p></li>
+<li><p>Backbone - <a href="https://github.com/documentcloud/backbone">https://github.com/documentcloud/backbone</a></p></li>
+<li><p>jQuery - <a href="http://jquery.com">http://jquery.com</a></p></li>
+</ul><h3>Build</h3>
+
+<pre><code>bundle exec jammit
+</code></pre>
+
+<p>Then you can get minified version of backbone-queues from public/assets folder.</p>
+
+<h3>Examples</h3>
+
+<p>Please see 'sync' example in examples folder.</p>
+      </section>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-30667535-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
