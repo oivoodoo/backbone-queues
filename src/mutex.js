@@ -10,7 +10,7 @@ Mutex.prototype = {
     if (this.queues.length > 0 && !this.locked) {
       this.locked = true;
 
-      var f = this.queues.pop();
+      var f = this.queues.splice(0, 1)[0];
       try {
         f(function() {
           self.next.call(self);
